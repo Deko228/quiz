@@ -37,6 +37,7 @@ def display_score(correct_guesses, guesses):
 
     k = []
     n = []
+    f = []
 
     print("-------------------------")
     print("РЕЗУЛЬТАТЫ")
@@ -54,12 +55,16 @@ def display_score(correct_guesses, guesses):
         n.append(questions.get(i))
     print()
 
-    score = int(correct_guesses)
-    total = len(questions)
+    for key in questions:
+        f.append((key))
+
+
+    score = int(correct_guesses)*50
+    total = int(len(questions))*50
     print("Ваш счёт: "+str(score)+" / "+str(total))
 
     my_file = open("Result.txt", "w+")
-    my_file.write("Ваши ответы: "+str(k)+"\nПравильные ответы: "+str(n)+"\nВаш счёт: "+str(score)+" / "+str(total))
+    my_file.write("РЕЗУЛЬТАТЫ\n-------------------------\nВопросы: "+str(f)+"\nВаши ответы: "+str(k)+"\nПравильные ответы: "+str(n)+"\nВаш счёт: "+str(score)+" / "+str(total))
     my_file.close()
 
 
